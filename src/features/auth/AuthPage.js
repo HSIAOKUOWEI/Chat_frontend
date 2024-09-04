@@ -11,13 +11,14 @@ const LoginPage = () => {
 
   const handleSubmit = async (values) => {
     try {
-        const response = await axios.post('http://127.0.0.1:5000/auth/login', {
-            username: values.username,
-            password: values.password,
+        const response = await axios.post('http://10.4.222.25:1234/User/user_auth', {
+            account: values.username,
+            pw: values.password,
           }, {
             withCredentials: true,
           });
-
+        console.log(response);
+        console.log(response.data);
       // 根据服务器返回的内容进行处理
       if (response.data.status === 'success') {
         // 登录成功的处理，比如跳转到首页
